@@ -1,27 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="NoName">
-    <meta name="description" content="Quiz/Test sobre diferents temes.">
-    <meta name="keywords" content="Quiz, Test, Proba, Examen, Control, Sondeig, Enquesta, Qëstionari, Formulari">
-    <title>Juegos Friv Online</title>
-    <link  rel="stylesheet"  href="../CSS/juegos_online.css" type="text/css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="icon" href="https://previews.123rf.com/images/maxborovkov/maxborovkov1808/maxborovkov180800444/111280080-quiz-sign-colorful-brush-design-vector-background.jpg">
-</head>
-<body>
-    <section>
-        <div class="barraNegra">
-            <figure class="image is-24x24">
-                <img src="https://previews.123rf.com/images/maxborovkov/maxborovkov1808/maxborovkov180800444/111280080-quiz-sign-colorful-brush-design-vector-background.jpg" alt="LOGO">
-            </figure>
-            <h1 class="titulo">QUIZES PREPARATS PER L'ARNAU BELLAVISTA</h1>
-        </div>
-    </section>
-    
-    
-    <script src="../JavaScript/juegos_online.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="NoName">
+        <meta name="description" content="Quiz/Test sobre diferents temes.">
+        <meta name="keywords" content="Quiz, Test, Proba, Examen, Control, Sondeig, Enquesta, Qëstionari, Formulari">
+        <title>Juegos Friv Online</title>
+        <link  rel="stylesheet"  href="../CSS/juegos_online.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="icon" href="https://previews.123rf.com/images/maxborovkov/maxborovkov1808/maxborovkov180800444/111280080-quiz-sign-colorful-brush-design-vector-background.jpg">
+    </head>
+    <body>
+        <section>
+            <div class="barraNegra">
+                <figure class="image is-24x24">
+                    <img src="https://previews.123rf.com/images/maxborovkov/maxborovkov1808/maxborovkov180800444/111280080-quiz-sign-colorful-brush-design-vector-background.jpg" alt="LOGO">
+                </figure>
+                <h1 class="titulo">QUIZES PREPARATS PER L'ARNAU BELLAVISTA</h1>
+            </div>
+        </section>
+        <section class="section is-medium" id="cajaGenerador">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                        <h1>Generador de Tablas de Torneos</h1>
+                        <p>Simple generador de tablas para hacer torneos. Sólo elige la cantidad de equipos a generar.</p>
+                        </br>
+                    </div>
+                    <div class="box caja">
+                        <div class="columns is-centered">
+                            <div class="column is-one-thirds">
+                                <label class="sub-titulo">Cantidad de equipos</label>
+                                <input type="text" id="N_equipos" placeholder="Cantidad de Equipos?" class="input-texto">
+                            </div>
+                            <div class="column is-one-thirds">
+                                <label class="sub-titulo">Formato de equipos</label>
+                                <select name="opciones" class="select-options1" id="formato">
+                                    <option value="letras">Letras  -  Ejemplo: Equipo A</option>
+                                    <option value="numeros">Numeros  -  Ejemplo: Equipo 1</option>
+                                </select>
+                            </div>
+                            <div class="column is-one-thirds">
+                                <label class="sub-titulo">Modo de juego</label>
+                                <select name="opciones" class="select-options2" id="modo">
+                                    <option value="TORNEO">Torneo</option>
+                                    <option value="LIGUILLA">Liguilla</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="missatge" class="MensajeIncorrecto"></div>
+                        </br>
+                        <div class="boton">
+                            <button type="button" id="generar" class="boton-generar" onclick="buttonpresed()">Generar</button>
+                        </div>
+                        <br>
+                        <div class="content recordatorio">
+                            <p><span class="rojo">*</span>Una vez introducido los parametros, tendrá que introducir los nombres de sus respectivos equipos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
