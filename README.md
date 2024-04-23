@@ -11,4 +11,9 @@ Aquest arxiu de text anomenat "README", és per entendre això i seguir unes ins
 
 Aquest projecte ha estat disenyat i plantejat amb diverses eines.
 La web és un QUIZ/TRIVIAL de preguntes generals aleatòries.
-Els arxius princiapls (HTML,CSS,JS), estaran en un mateix repositori i estaran intercoonectats perquè tots funcionin correctament.
+Els arxius principals (HTML,CSS,JS), estaran en un mateix repositori i estaran intercoonectats perquè tots funcionin correctament.
+
+
+Hi haurà un total de 150 preguntes, 15 preguntes per cadascún d'els temes o temàtiques següents: 
+
+Ciència, Videojocs, Cine, Esports, Història, Geografia, Literatura i Música.
