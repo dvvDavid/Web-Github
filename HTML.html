@@ -6,58 +6,142 @@
         <meta name="author" content="NoName">
         <meta name="description" content="Quiz/Test sobre diferents temes.">
         <meta name="keywords" content="Quiz, Test, Proba, Examen, Control, Sondeig, Enquesta, Qëstionari, Formulari">
-        <title>Juegos Friv Online</title>
-        <link  rel="stylesheet"  href="../CSS/juegos_online.css" type="text/css">
+        <title>QUIZ ONLINE</title>
+        <link  rel="stylesheet"  href="../HTML/CSS/CSS.css" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-        <link rel="icon" href="https://previews.123rf.com/images/maxborovkov/maxborovkov1808/maxborovkov180800444/111280080-quiz-sign-colorful-brush-design-vector-background.jpg">
+        <link rel="icon" href="https://c7.alamy.com/compes/2a4ymyt/letra-q-glitch-neon-efecto-distorsionado-de-la-fuente-del-texto-3d-render-2a4ymyt.jpg">
     </head>
     <body>
         <section>
             <div class="barraNegra">
                 <figure class="image is-24x24">
-                    <img src="https://previews.123rf.com/images/maxborovkov/maxborovkov1808/maxborovkov180800444/111280080-quiz-sign-colorful-brush-design-vector-background.jpg" alt="LOGO">
+                    <img src="https://c7.alamy.com/compes/2a4ymyt/letra-q-glitch-neon-efecto-distorsionado-de-la-fuente-del-texto-3d-render-2a4ymyt.jpg" alt="LOGO">
                 </figure>
-                <h1 class="titulo">QUIZES PREPARATS PER L'ARNAU BELLAVISTA</h1>
+                <h1 class="titulo">QUIZ PREPARATS PER L'ALUMNE: ARNAU BELLAVISTA</h1>
+                <h1 style="text-align: end; color:white; width: 71%;"></h1>
             </div>
         </section>
-        <section class="section is-medium" id="cajaGenerador">
+        <section class="section is-medium">
             <div class="columns is-centered">
                 <div class="column is-three-quarters">
                     <div class="content has-text-centered">
-                        <h1>Generador de Tablas de Torneos</h1>
-                        <p>Simple generador de tablas para hacer torneos. Sólo elige la cantidad de equipos a generar.</p>
-                        </br>
+                        <p class="tituloPrincipal">Quiz Sobre Preguntes Generals</p>
+                        <p>Estàs preparat per posar a prova el teu coneixement amb els nostres divertits i emocionants quizzs?</p>
+			            <p style="font-weight: bold;">Registra't i demostra el que saps!</p>
                     </div>
                     <div class="box caja">
                         <div class="columns is-centered">
-                            <div class="column is-one-thirds">
-                                <label class="sub-titulo">Cantidad de equipos</label>
-                                <input type="text" id="N_equipos" placeholder="Cantidad de Equipos?" class="input-texto">
+                            <div class="column is-one-fifth">
                             </div>
-                            <div class="column is-one-thirds">
-                                <label class="sub-titulo">Formato de equipos</label>
-                                <select name="opciones" class="select-options1" id="formato">
-                                    <option value="letras">Letras  -  Ejemplo: Equipo A</option>
-                                    <option value="numeros">Numeros  -  Ejemplo: Equipo 1</option>
-                                </select>
+                            <div class="column is-three-fifths">
+                                <div class="content center-text">
+                                    <h2>·| QUIN SERÀ EL TEU NOM? |·</h2>
+                                </div>
+                                <div class="center-text">
+                                    <input type="text" placeholder="NoMamesCabron:v" class="input-texto">
+                                    <button class="botonNombre">Confirmar</button>
+                                </div>
+                                <br>
+                                <div class="center-text">
+                                    <p class="subtextorojo">*Si us plau, sigues respectuós/a i considerat/da en triar el teu nom d'usuari per a aquesta partida. Evita utilitzar noms inadequats o ofensius que puguin incomodar altres jugadors. Volem crear un entorn amigable i divertit per a tothom.*</p>
+                                    <br>
+                                    <p class="subtextorojo">*Gràcies per la vostra cooperació!*</p>
+                                </div>
                             </div>
-                            <div class="column is-one-thirds">
-                                <label class="sub-titulo">Modo de juego</label>
-                                <select name="opciones" class="select-options2" id="modo">
-                                    <option value="TORNEO">Torneo</option>
-                                    <option value="LIGUILLA">Liguilla</option>
-                                </select>
+                            <div class="column is-one-fifth">
                             </div>
                         </div>
-                        <div id="missatge" class="MensajeIncorrecto"></div>
-                        </br>
-                        <div class="boton">
-                            <button type="button" id="generar" class="boton-generar" onclick="buttonpresed()">Generar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section is-medium" style="display: none;">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                        <p class="tituloPrincipal">SELECCIONA ELS TEMES DE LES PREGUNTES</p>
+                        <p>"Selecciona els temes que t'interessen per personalitzar la teva experiència de preguntes!"</p>
+			            <p style="font-weight: bold;">El veritable coneixement és saber el que no saps.</p>
+                    </div>
+                    <div class="box caja">
+                        <div class="put">
+                            <div class="put2">
+                                <button class="botonboton" style="border-color: rgb(82, 82, 255);">Hitoria</button>
+                            </div>
+                            <div class="put2">
+                                <button class="botonboton" style="border-color: gray;">Geografia</button>
+                            </div>
+                            <div class="put2">
+                                <button class="botonboton" style="border-color: mediumvioletred;">Ciencia</button>
+                            </div>
                         </div>
-                        <br>
-                        <div class="content recordatorio">
-                            <p><span class="rojo">*</span>Una vez introducido los parametros, tendrá que introducir los nombres de sus respectivos equipos.</p>
+                        <div class="put">
+                            <div class="put2">
+                                <button class="botonboton" style="border-color: orangered;">Videojocs</button>
+                            </div>
+                            <div class="put2">
+                                <button class="botonboton" style="border-color: yellow;">Cinema</button>
+                            </div>
+                            <div class="put2">
+                                <button class="botonboton" style="border-color: greenyellow;">Esports</button>
+                            </div>
                         </div>
+                        <div class="put">
+                            <div class="put2">
+                                <button class="botonboton" style="border-color: rgb(188, 198, 0);">Música</button>
+                            </div>
+                            <div class="put2">
+                                <button class="botonboton" style="border-color: skyblue;">Literatura</button>
+                            </div>
+                        </div>
+                        <div class="put">
+                            <div class="put">
+                                <button class="botonbotonSTR">START</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section is-medium" style="display: none;">
+            <div class="espacio-v" style="visibility: hidden;">
+                <div class="ns">
+                    <h1 class="RespuestaBoolean">¡ERES UN PELOTUDO! >:v</h1>
+                    <p>Eres una desgracia para tu familia</p>
+                    <p>Mejor dedicate al circo ;D</p>
+                </div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="content is-centered ">
+                    <div class="cajaPregunta">
+                        <p>Esta seria la caja donde contiene las pregunta, pero como el Arnau no ha subido las preguntas no tenemos preguntas para hacer :c</p>
+                    </div>
+                </div>
+            </div>
+            <div class="respuestas">
+                <div class="p">
+                    <div class="cajaRespuestas">
+                        <p>a. Arnau P</p>
+                    </div>
+                </div>
+                <div class="p">
+                    <div class="cajaRespuestas">
+                        <p>b. Arnau C</p>
+                    </div>
+                </div>
+            </div>
+            <div class="respuestas">
+                <div class="p">
+                    <div class="cajaRespuestas">
+                        <p>c. Arnau M</p>
+                    </div>
+                </div>
+                <div class="p">
+                    <div class="cajaRespuestas">
+                        <p>d. Arnau B</p>
                     </div>
                 </div>
             </div>
