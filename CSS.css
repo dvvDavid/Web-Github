@@ -156,8 +156,22 @@ body {
     font-weight: bold;
 }
 
+.corazonBomBomXD {
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+}
+
+.jofre {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 72%;
+}
+
 .botonbotonSTR:hover {
     background-color: rgb(255, 83, 83);
     color: white;
     border: solid gold 3px ;
 }
+
