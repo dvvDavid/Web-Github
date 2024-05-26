@@ -7,25 +7,12 @@
         <meta name="description" content="Quiz/Test sobre diferents temes.">
         <meta name="keywords" content="Quiz, Test, Proba, Examen, Control, Sondeig, Enquesta, Qëstionari, Formulari">
         <title>QUIZ ONLINE</title>
-        <link  rel="stylesheet"  href="../HTML/CSS/CSS.css" type="text/css">
+        <link rel="stylesheet"  href="CSS.css" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link rel="icon" href="https://c7.alamy.com/compes/2a4ymyt/letra-q-glitch-neon-efecto-distorsionado-de-la-fuente-del-texto-3d-render-2a4ymyt.jpg">
     </head>
     <body>
-        <section>
-            <div class="barraNegra">
-                <figure class="image is-24x24">
-                    <img src="https://c7.alamy.com/compes/2a4ymyt/letra-q-glitch-neon-efecto-distorsionado-de-la-fuente-del-texto-3d-render-2a4ymyt.jpg" alt="LOGO">
-                </figure>
-                <h1 class="titulo">QUIZ PREPARATS PER L'ALUMNE: ARNAU BELLAVISTA</h1>
-                <div class="jofre">
-                    <img src="../IMG/corazon.png" alt="vida1" class="corazonBomBomXD">
-                    <img src="../IMG/corazon.png" alt="vida2" class="corazonBomBomXD">
-                    <img src="../IMG/corazon.png" alt="vida3" class="corazonBomBomXD">
-                </div>
-            </div>
-        </section>
-        <section class="section is-medium">
+        <section class="section is-medium" id="inici">
             <div class="columns is-centered">
                 <div class="column is-three-quarters">
                     <div class="content has-text-centered">
@@ -42,9 +29,14 @@
                                     <h2>·| QUIN SERÀ EL TEU NOM? |·</h2>
                                 </div>
                                 <div class="center-text">
-                                    <input type="text" placeholder="Nom" class="input-texto">
-                                    <button class="botonNombre">Confirmar</button>
+                                    <input type="text" class="input-texto" id="nom_usuari">
+                                    <button class="botonNombre" onclick="redirigir_temes()">Confirmar</button>
                                 </div>
+
+                                <div class="center-text" style="display: none; padding-top: 30px;" id="error">
+                                    <p class="botonNombre" id="posar_nom" style="padding-top: 5px; background-color: red; border-radius: 5px;"></p>
+                                </div>
+
                                 <br>
                                 <div class="center-text">
                                     <p class="subtextorojo">*Si us plau, sigues respectuós/a i considerat/da en triar el teu nom d'usuari per a aquesta partida. Evita utilitzar noms inadequats o ofensius que puguin incomodar altres jugadors. Volem crear un entorn amigable i divertit per a tothom.*</p>
@@ -60,48 +52,51 @@
             </div>
         </section>
 
-        <section class="section is-medium" style="display: none;">
+        <section class="section is-medium" style="display: none;" id="primera">
             <div class="columns is-centered">
                 <div class="column is-three-quarters">
                     <div class="content has-text-centered">
                         <p class="tituloPrincipal">SELECCIONA ELS TEMES DE LES PREGUNTES</p>
-                        <p>"Selecciona els temes que t'interessen per personalitzar la teva experiència de preguntes!"</p>
+                        <p>Selecciona el tema que t'interessi. Si vols més d'un tema, clica el botó 'TEMES VARIATS'</p>
 			            <p style="font-weight: bold;">El veritable coneixement és saber el que no saps.</p>
                     </div>
                     <div class="box caja">
                         <div class="put">
                             <div class="put2">
-                                <button class="botonboton" style="border-color: rgb(82, 82, 255);">Hitoria</button>
+                                <!-- <a class="btn btn-primary" href="preguntes.html" onclick="mostrar_preguntes(0)">asdasdad</a>   -->
+                                <a>
+                                    <button class="botonboton" onclick="mostrar_preguntes(0)" style="border-color: rgb(82, 82, 255);">Historia</button>                              
+                                </a>
                             </div>
                             <div class="put2">
-                                <button class="botonboton" style="border-color: gray;">Geografia</button>
+                                <button class="botonboton" onclick="mostrar_preguntes(1)" style="border-color: gray;">Geografia</button>
                             </div>
                             <div class="put2">
-                                <button class="botonboton" style="border-color: mediumvioletred;">Ciencia</button>
-                            </div>
-                        </div>
-                        <div class="put">
-                            <div class="put2">
-                                <button class="botonboton" style="border-color: orangered;">Videojocs</button>
-                            </div>
-                            <div class="put2">
-                                <button class="botonboton" style="border-color: yellow;">Cinema</button>
-                            </div>
-                            <div class="put2">
-                                <button class="botonboton" style="border-color: greenyellow;">Esports</button>
+                                <button class="botonboton" onclick="mostrar_preguntes(2)" style="border-color: mediumvioletred;">Ciencia</button>
                             </div>
                         </div>
                         <div class="put">
                             <div class="put2">
-                                <button class="botonboton" style="border-color: rgb(188, 198, 0);">Música</button>
+                                <button class="botonboton" onclick="mostrar_preguntes(3)" style="border-color: orangered;">Videojocs</button>
                             </div>
                             <div class="put2">
-                                <button class="botonboton" style="border-color: skyblue;">Literatura</button>
+                                <button class="botonboton" onclick="mostrar_preguntes(4)" style="border-color: yellow;">Cinema</button>
+                            </div>
+                            <div class="put2">
+                                <button class="botonboton" onclick="mostrar_preguntes(5)" style="border-color: greenyellow;">Esports</button>
+                            </div>
+                        </div>
+                        <div class="put">
+                            <div class="put2">
+                                <button class="botonboton" onclick="mostrar_preguntes(6)" style="border-color: rgb(188, 198, 0);">Música</button>
+                            </div>
+                            <div class="put2">
+                                <button class="botonboton" onclick="mostrar_preguntes(7)" style="border-color: skyblue;">Literatura</button>
                             </div>
                         </div>
                         <div class="put">
                             <div class="put">
-                                <button class="botonbotonSTR">START</button>
+                                <button class="botonbotonSTR" onclick="mostrar_preguntes(8)">TEMES VARIATS</button>
                             </div>
                         </div>
                     </div>
@@ -109,46 +104,109 @@
             </div>
         </section>
 
-        <section class="section is-medium" style="display: none;">
-            <div class="espacio-v" style="visibility: hidden;">
-                <div class="ns">
-                    <h1 class="RespuestaBoolean">¡ERES UN PELOTUDO! >:v</h1>
-                    <p>Eres una desgracia para tu familia</p>
-                    <p>Mejor dedicate al circo ;D</p>
+        <section style="display: none;" id="segona">
+            <div class="barraNegra">
+                <figure class="image is-24x24">
+                    <img src="https://c7.alamy.com/compes/2a4ymyt/letra-q-glitch-neon-efecto-distorsionado-de-la-fuente-del-texto-3d-render-2a4ymyt.jpg" alt="LOGO">
+                </figure>
+                <h1 class="titulo" id="tema"></h1>
+                <div class="jofre" id="cors"></div>
+            </div>
+        </section>
+
+        <section class="section is-medium" id="preguntes" style="display: none;"> 
+            <div class="columns is-centered">
+                <div class="content is-centered">
+                    <div class="cajaPregunta">
+                        <p id="p1"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="respuestas">
+                <div class="p">
+                    <div class="cajaRespuestas" id="div0" onclick="respostaCorrecte(0)">
+                        <p id="r0"></p>
+                    </div>
+                </div>
+                <div class="p">
+                    <div class="cajaRespuestas" id="div1" onclick="respostaCorrecte(1)">
+                        <p id="r1"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="respuestas">
+                <div class="p">
+                    <div class="cajaRespuestas" id="div2"  onclick="respostaCorrecte(2)">
+                        <p id="r2"></p>
+                    </div>
+                </div>
+                <div class="p">
+                    <div class="cajaRespuestas" id="div3" onclick="respostaCorrecte(3)">
+                        <p id="r3"></p>
+                    </div>
                 </div>
             </div>
 
-            <div class="columns is-centered">
-                <div class="content is-centered ">
-                    <div class="cajaPregunta">
-                        <p>Esta seria la caja donde contiene las pregunta, pero como el Arnau no ha subido las preguntas no tenemos preguntas para hacer :c</p>
-                    </div>
-                </div>
-            </div>
-            <div class="respuestas">
+            <div class="respuestas" style="visibility: hidden;" id="tornar">
                 <div class="p">
-                    <div class="cajaRespuestas">
-                        <p>a. Arnau P</p>
-                    </div>
-                </div>
-                <div class="p">
-                    <div class="cajaRespuestas">
-                        <p>b. Arnau C</p>
-                    </div>
-                </div>
-            </div>
-            <div class="respuestas">
-                <div class="p">
-                    <div class="cajaRespuestas">
-                        <p>c. Arnau M</p>
-                    </div>
-                </div>
-                <div class="p">
-                    <div class="cajaRespuestas">
-                        <p>d. Arnau B</p>
+                    <div class="cajaRespuestas" onclick="tornar_a_preguntar()">
+                        <p class="respuestas" style="padding-bottom: 20px;">Següent pregunta</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="centered" id="no-vides" style="display: none;">
+            <style>
+                .centered {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                    text-align: center;
+                }
+                .centered h1 {
+                    font-size: 2.5em;
+                    margin-bottom: 0.5em;
+                    font-weight: bold;
+                }
+                .centered p, .centered span {
+                    font-size: 1.2em;
+                    margin-bottom: 0.5em;
+                }
+                .centered .respuestas {
+                    margin-top: 1em;
+                }
+                .centered .cajaRespuestas {
+                    padding: 0.5em 1.5em;
+                    background-color: #001f3f;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                .centered .cajaRespuestas p {
+                    color: white;
+                    font-size: 1.2em;
+                    margin: 0;
+                }
+                .centered .cajaRespuestas:hover {
+                    background-color: #001233;
+                }
+            </style>
+            <h1 id="crida">Ja no et queden vides</h1>
+            <div>
+                <span>❤❤❤</span>
+            </div>
+            <p id="total_preguntes">Et quedaven 3 preguntes per respondre</p>
+            <div class="respuestas">
+                <div class="p">
+                    <div class="cajaRespuestas" onclick="iniciar()">
+                        <p class="respuestas">Tornar al inici</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <script src="JS.js"></script>
     </body>
 </html>
