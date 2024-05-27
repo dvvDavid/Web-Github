@@ -5,7 +5,12 @@ let v;
 let pregunta_random=Math.floor(Math.random()*6)+1;
 let array_random=Math.floor(Math.random()*8);
 let sense_repetir=[0,0,0,0,0,0];
+let temes=[-1,-1,-1];
 let contador=0;
+let cont_temes=0;
+let tema_selec=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
+let pregunta=0;
+let posar_comodin=true; let posar_comodin1=true;
 const array_preguntes_cine = [
     {
         tema: "Cinema"
@@ -71,7 +76,7 @@ const array_preguntes_historia=[
         respostes_correctes:0
     },
     {
-        pregunta:"12) Qui va ser el líder de la Revolució Russa de 1917?",
+        pregunta:"Qui va ser el líder de la Revolució Russa de 1917?",
         respostes:["a) Lenin","b) Stalin","c) Rasputin","d) Trotsky"],
         respostes_correctes: 0
     }
@@ -298,31 +303,78 @@ array_preguntes.push(array_preguntes_esports);
 array_preguntes.push(array_preguntes_musica);
 array_preguntes.push(array_preguntes_literatura);
 
-function mostrar_preguntes(i){
+function recollir_temes(i) {
+    if (cont_temes>0 && i==9) {
+        mostrar_preguntes();
+    }
+
+    if (tema_selec[i]==-1) {
+        if (cont_temes==0 && i==9 || cont_temes==3) {
+            document.getElementById("div_tema").style.display="block";
+            document.getElementById("error_tema").innerText="Has d'escollir com a mínim un tema";
+            if (cont_temes==3) {
+                document.getElementById("error_tema").innerText="Pots escollir 3 temes com a màxim";
+            }
+        }
+        else if (cont_temes<3 && i<=7) {
+            document.getElementById(`tema${i}`).style.backgroundColor="#D35BCD";
+            temes[cont_temes]=i;
+            cont_temes++;
+        }
+        tema_selec[i]=i;
+    }
+    else{
+        document.getElementById(`tema${i}`).style.backgroundColor="white";
+        tema_selec[i]=-1;
+        temes[cont_temes]=-1;
+        cont_temes--;
+    }
+}
+
+
+function mostrar_preguntes(i=-1){
     v=i;
     pregunta_random=Math.floor(Math.random()*6)+1;
     if (v==8) {
-        array_random=Math.floor(Math.random()*8)+1;
+        array_random=Math.floor(Math.random()*array_preguntes.length);
     }
     while (sense_repetir[pregunta_random]==1) {
-        console.log("Repetida");
         pregunta_random=Math.floor(Math.random()*6)+1;
     }
     sense_repetir[pregunta_random]=1;
     contador++;
 
+    actualitzar_pregunta();
+
     if (contador<7 && vides>0) {
+        if (v!=8) {
+            pregunta=array_correcte();
+        }
         document.getElementById("primera").style.display="none";
         document.getElementById("segona").style.display="block";
         document.getElementById("preguntes").style.display="block";
-        escriure_tema(i);
+        escriure_tema();
         print_cors();
-        mostrar_pregunta(i,pregunta_random);
-        mostrar_respostes(i,pregunta_random);
+        mostrar_pregunta();
+        mostrar_respostes();
     }
     else{
         mort();
     }
+}
+
+function actualitzar_pregunta() {
+    document.getElementById("num_pregunta").innerText=`Pregunta ${contador}/6`;
+    document.getElementById("num_pregunta").style.color="White";
+}
+
+function array_correcte() {
+    let temes_seleccionats=temes[Math.floor(Math.random() * temes.length)];
+    while (temes_seleccionats==-1) {
+        temes_seleccionats=temes[Math.floor(Math.random() * temes.length)];
+    }
+
+    return temes_seleccionats;
 }
 
 function tornar_a_preguntar(){
@@ -330,19 +382,19 @@ function tornar_a_preguntar(){
     mostrar_preguntes(v);
 }
 
-function mostrar_pregunta(i,pregunta_random){
+function mostrar_pregunta(){
     if (v<8) {
-        document.getElementById("p1").innerText=array_preguntes[i][pregunta_random].pregunta;
+        document.getElementById("p1").innerText=array_preguntes[pregunta][pregunta_random].pregunta;
     }
     else{
         document.getElementById("p1").innerText=array_preguntes[array_random][pregunta_random].pregunta;
     }
 }
 
-function mostrar_respostes(i,pregunta_random){
+function mostrar_respostes(){
     for (let index = 0; index <4; index++) {
         if (v<8) {
-            document.getElementById(`r${index}`).innerText=array_preguntes[i][pregunta_random].respostes[index];
+            document.getElementById(`r${index}`).innerText=array_preguntes[pregunta][pregunta_random].respostes[index];
         }
         else{
             document.getElementById(`r${index}`).innerText=array_preguntes[array_random][pregunta_random].respostes[index];
@@ -350,15 +402,16 @@ function mostrar_respostes(i,pregunta_random){
     }
 }
 
-function respostaCorrecte(a){
+function saber_resposta() {
     var correcte;
     if (v<8) {
-        correcte=array_preguntes[v][pregunta_random].respostes_correctes;
+        correcte=array_preguntes[pregunta][pregunta_random].respostes_correctes;
     }
-    else{
-        correcte=array_preguntes[array_random][pregunta_random].respostes_correctes;
-    }
-    
+    return correcte=array_preguntes[array_random][pregunta_random].respostes_correctes;
+}
+
+function respostaCorrecte(a){
+    var correcte=saber_resposta();
     document.getElementById(`div${a}`).style.backgroundColor="red";
     document.getElementById(`div${correcte}`).style.backgroundColor="green";
     if (a!=correcte) {
@@ -386,17 +439,26 @@ function redirigir_temes() {
     }
 }
 
-function escriure_tema(i){
+function escriure_tema(){
     if (v<8) {
-        document.getElementById("tema").innerText=array_preguntes[i][0].tema;
+        document.getElementById("tema").innerText=array_preguntes[pregunta][0].tema;
     }
     else{
         document.getElementById("tema").innerText=array_preguntes[array_random][0].tema;
     }
+
+    document.getElementById("tema").style.fontSize="24px";
 }
 
 function print_cors(){
     document.getElementById("cors").innerHTML="";
+    if (document.getElementById("comodin").checked && posar_comodin) {
+        document.getElementById("cors").innerHTML+=`<img src="images/cin.png" class="cincuenta" onclick="comodin()" id="cinc">`;
+    }
+    if (document.getElementById("comodin1").checked && posar_comodin1) {
+        document.getElementById("cors").innerHTML+=`<img src="images/skip.png" class="skip" onclick="comodin_skip()" id="skip" sytle="padding-right: 50px">`;
+    }
+
     for (let index = 0; index < vides; index++) {
         document.getElementById("cors").innerHTML+=`<img src="images/corazon.png" alt="vida1" class="corazonBomBomXD">`;
     }
@@ -404,6 +466,30 @@ function print_cors(){
     for (let index = 3-vides; index>0; index--) {
         document.getElementById("cors").innerHTML+=`<img src="images/corazon_vacio.png" alt="vida1" class="corazonBomBomXD1">`;
     }
+}
+
+function comodin() {
+    var correcte=saber_resposta();
+    var anterior=0;
+    for (let index = 0; index < 2; index++) {
+        let treure_aleatori=Math.floor(Math.random()*3)+1;
+        if (treure_aleatori!=correcte && treure_aleatori!=anterior) {
+            document.getElementById(`div${treure_aleatori}`).style.display="none";
+            anterior=treure_aleatori;
+        }
+        else{
+            index--;
+        }
+    }
+
+    posar_comodin=false;
+    document.getElementById("cinc").style.display="none";
+}
+
+function comodin_skip() {
+    posar_comodin1=false;
+    document.getElementById("skip").style.display="none";
+    tornar_a_preguntar();
 }
 
 function resetAnswers() {
