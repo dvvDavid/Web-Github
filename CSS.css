@@ -168,6 +168,19 @@ body {
     padding: 2px;
 }
 
+.cincuenta {
+    width: 100px;
+    height: 50px;
+    padding: 2px;
+}
+
+.skip {
+    width: 65px;
+    height: 40px;
+    padding: 2px;
+    padding-right: 30px;
+}
+
 .jofre {
     display: flex;
     justify-content: end;

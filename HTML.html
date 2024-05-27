@@ -33,6 +33,17 @@
                                     <button class="botonNombre" onclick="redirigir_temes()">Confirmar</button>
                                 </div>
 
+                                <div class="center-text">
+                                    <label style="font-size: 20px; padding-right: 35px;">
+                                        <input type="checkbox" style="margin-top: 30px; transform: scale(1.5); " id="comodin">
+                                        COMODÍ 50/50
+                                    </label>
+                                    <label style="font-size: 20px; padding-right: 35px;">
+                                        <input type="checkbox" style="margin-top: 30px; transform: scale(1.5);" id="comodin1">
+                                        COMODÍ SKIP
+                                    </label>
+                                </div>
+
                                 <div class="center-text" style="display: none; padding-top: 30px;" id="error">
                                     <p class="botonNombre" id="posar_nom" style="padding-top: 5px; background-color: red; border-radius: 5px;"></p>
                                 </div>
@@ -57,46 +68,49 @@
                 <div class="column is-three-quarters">
                     <div class="content has-text-centered">
                         <p class="tituloPrincipal">SELECCIONA ELS TEMES DE LES PREGUNTES</p>
-                        <p>Selecciona el tema que t'interessi. Si vols més d'un tema, clica el botó 'TEMES VARIATS'</p>
+                        <p>Selecciona el tema/es que t'interessin (màxim 3). Si vols més de 3 temes, clica el botó 'TEMES VARIATS'</p>
 			            <p style="font-weight: bold;">El veritable coneixement és saber el que no saps.</p>
                     </div>
                     <div class="box caja">
                         <div class="put">
                             <div class="put2">
-                                <!-- <a class="btn btn-primary" href="preguntes.html" onclick="mostrar_preguntes(0)">asdasdad</a>   -->
-                                <a>
-                                    <button class="botonboton" onclick="mostrar_preguntes(0)" style="border-color: rgb(82, 82, 255);">Historia</button>                              
-                                </a>
+                                <button id="tema0" class="botonboton" onclick="recollir_temes(0)" style="border-color: rgb(82, 82, 255);">Historia</button>                              
                             </div>
                             <div class="put2">
-                                <button class="botonboton" onclick="mostrar_preguntes(1)" style="border-color: gray;">Geografia</button>
+                                <button id="tema1" class="botonboton" onclick="recollir_temes(1)" style="border-color: gray;">Geografia</button>
                             </div>
                             <div class="put2">
-                                <button class="botonboton" onclick="mostrar_preguntes(2)" style="border-color: mediumvioletred;">Ciencia</button>
+                                <button id="tema2" class="botonboton" onclick="recollir_temes(2)" style="border-color: mediumvioletred;">Ciencia</button>
                             </div>
                         </div>
                         <div class="put">
                             <div class="put2">
-                                <button class="botonboton" onclick="mostrar_preguntes(3)" style="border-color: orangered;">Videojocs</button>
+                                <button id="tema3" class="botonboton" onclick="recollir_temes(3)" style="border-color: orangered;">Videojocs</button>
                             </div>
                             <div class="put2">
-                                <button class="botonboton" onclick="mostrar_preguntes(4)" style="border-color: yellow;">Cinema</button>
+                                <button id="tema4" class="botonboton" onclick="recollir_temes(4)" style="border-color: yellow;">Cinema</button>
                             </div>
                             <div class="put2">
-                                <button class="botonboton" onclick="mostrar_preguntes(5)" style="border-color: greenyellow;">Esports</button>
+                                <button id="tema5" class="botonboton" onclick="recollir_temes(5)" style="border-color: greenyellow;">Esports</button>
                             </div>
                         </div>
                         <div class="put">
                             <div class="put2">
-                                <button class="botonboton" onclick="mostrar_preguntes(6)" style="border-color: rgb(188, 198, 0);">Música</button>
+                                <button id="tema6" class="botonboton" onclick="recollir_temes(6)" style="border-color: rgb(188, 198, 0);">Música</button>
                             </div>
                             <div class="put2">
-                                <button class="botonboton" onclick="mostrar_preguntes(7)" style="border-color: skyblue;">Literatura</button>
+                                <button id="tema7" class="botonboton" onclick="recollir_temes(7)" style="border-color: skyblue;">Literatura</button>
                             </div>
                         </div>
                         <div class="put">
                             <div class="put">
                                 <button class="botonbotonSTR" onclick="mostrar_preguntes(8)">TEMES VARIATS</button>
+                                <button class="botonbotonSTR" onclick="recollir_temes(9)">CONFIRMAR TEMES</button>
+                            </div>
+                        </div>
+                        <div class="put" style="display: none;" id="div_tema">
+                            <div class="put">
+                                <p class="botonNombre" id="error_tema" style="padding-top: 5px; background-color: red; border-radius: 5px;"></p>
                             </div>
                         </div>
                     </div>
@@ -106,10 +120,8 @@
 
         <section style="display: none;" id="segona">
             <div class="barraNegra">
-                <figure class="image is-24x24">
-                    <img src="https://c7.alamy.com/compes/2a4ymyt/letra-q-glitch-neon-efecto-distorsionado-de-la-fuente-del-texto-3d-render-2a4ymyt.jpg" alt="LOGO">
-                </figure>
                 <h1 class="titulo" id="tema"></h1>
+                <div class="jofre" id="num_pregunta"></div>
                 <div class="jofre" id="cors"></div>
             </div>
         </section>
@@ -197,7 +209,7 @@
             <div>
                 <span>❤❤❤</span>
             </div>
-            <p id="total_preguntes">Et quedaven 3 preguntes per respondre</p>
+            <p id="total_preguntes"></p>
             <div class="respuestas">
                 <div class="p">
                     <div class="cajaRespuestas" onclick="iniciar()">
